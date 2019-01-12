@@ -23,9 +23,9 @@ public class GcdTest {
             }
             assertNotSame(0, x);
             assertNotSame(Integer.MIN_VALUE, x);
-            assertEquals(x, ArithmeticUtils.gcd(x, x));
-            assertEquals(x, ArithmeticUtils.gcd(x, 0));
-            assertEquals(x, ArithmeticUtils.gcd(0, x));
+            assertEquals(Math.abs(x), ArithmeticUtils.gcd(x, x));
+            assertEquals(Math.abs(x), ArithmeticUtils.gcd(x, 0));
+	    assertEquals(Math.abs(x), ArithmeticUtils.gcd(0, x));
         }
         {
             assertEquals(0, ArithmeticUtils.gcd(0, 0));
@@ -43,9 +43,9 @@ public class GcdTest {
             }
             assertNotSame(0L, x);
             assertNotSame(Long.MIN_VALUE, x);
-            assertEquals(x, ArithmeticUtils.gcd(x, x));
-            assertEquals(x, ArithmeticUtils.gcd(x, 0L));
-            assertEquals(x, ArithmeticUtils.gcd(0L, x));
+            assertEquals(Math.abs(x), ArithmeticUtils.gcd(x, x));
+            assertEquals(Math.abs(x), ArithmeticUtils.gcd(x, 0L));
+	    assertEquals(Math.abs(x), ArithmeticUtils.gcd(0L, x));
         }
         {
             assertEquals(0L, ArithmeticUtils.gcd(0L, 0L));
