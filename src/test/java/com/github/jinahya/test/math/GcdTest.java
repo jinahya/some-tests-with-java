@@ -8,11 +8,17 @@ import org.junit.jupiter.api.Test;
 import static java.util.concurrent.ThreadLocalRandom.current;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Test class for Greatest common deivisor.
+ */
 public class GcdTest {
 
+    // -----------------------------------------------------------------------------------------------------------------
+    /**
+     * Tests {@link ArithmeticUtils#gcd(int, int)}.
+     */
     @Test
-    void commons() {
-        // -------------------------------------------------------------------------------------------------------------
+    public void commonsInt() {
         {
             assertThrows(ArithmeticException.class, () -> ArithmeticUtils.gcd(Integer.MIN_VALUE, Integer.MIN_VALUE));
             assertThrows(ArithmeticException.class, () -> ArithmeticUtils.gcd(Integer.MIN_VALUE, 0));
@@ -32,7 +38,13 @@ public class GcdTest {
         {
             assertEquals(0, ArithmeticUtils.gcd(0, 0));
         }
-        // -------------------------------------------------------------------------------------------------------------
+    }
+
+    /**
+     * Tests {@link ArithmeticUtils#gcd(long, long)}.
+     */
+    @Test
+    public void commonsLong() {
         {
             assertThrows(ArithmeticException.class, () -> ArithmeticUtils.gcd(Long.MIN_VALUE, Long.MIN_VALUE));
             assertThrows(ArithmeticException.class, () -> ArithmeticUtils.gcd(Long.MIN_VALUE, 0));
@@ -54,9 +66,12 @@ public class GcdTest {
         }
     }
 
+    // -----------------------------------------------------------------------------------------------------------------
+    /**
+     * Tests {@link IntMath#gcd(int, int)}.
+     */
     @Test
-    public void guava() {
-        // -------------------------------------------------------------------------------------------------------------
+    public void guavaInt() {
         {
             assertThrows(IllegalArgumentException.class, () -> IntMath.gcd(
                     current().nextInt() | Integer.MIN_VALUE, current().nextInt() >>> 1));
@@ -77,7 +92,13 @@ public class GcdTest {
         {
             assertEquals(0, IntMath.gcd(0, 0));
         }
-        // -------------------------------------------------------------------------------------------------------------
+    }
+
+    /**
+     * Tests {@link LongMath#gcd(long, long)}.
+     */
+    @Test
+    public void guavaLong() {
         {
             assertThrows(IllegalArgumentException.class, () -> LongMath.gcd(
                     current().nextLong() | Long.MIN_VALUE, current().nextLong() >>> 1));
